@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname,"public")))
 
 app.get('/',function(req,res) {
     rollbar.info('Accessed Index Page')
+    rollbar.error('Accessed Index Page')
     res.sendFile(path.resolve('public/index.html'));
   });
   
@@ -27,6 +28,7 @@ app.get('/',function(req,res) {
 
 app.get('/api/robots', (req, res) => {
     rollbar.info('Clicked Draw Button')
+    rollbar.error('Clicked Draw Button')
     try {
         res.status(200).send(botsArr)
     } catch (error) {
