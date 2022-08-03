@@ -29,6 +29,8 @@ xhr.open("POST", "https://trackapi.nutritionix.com/v2/natural/nutrients");
 xhr.setRequestHeader("x-app-id", "f7893874");
 xhr.setRequestHeader("x-app-key", "a45c83e5ac9000eb5fb7d20adc55305e");
 xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Access-Control-Allow-Origin", "http://localhost:5500");
+
 
 xhr.send(data);
 }
