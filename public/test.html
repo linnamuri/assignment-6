@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First JavaScript</h1>
+
+<p>JavaScript can change the content of an HTML element:</p>
+
+<button type="button" onclick="myFunction()">Click Me!</button>
+
+<p id="demo">This is a demonstration.</p>
+
+<script>
+function myFunction() { 
+var data = JSON.stringify({
+  "query": "oranges"
+});
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "https://trackapi.nutritionix.com/v2/natural/nutrients");
+xhr.setRequestHeader("x-app-id", "f7893874");
+xhr.setRequestHeader("x-app-key", "a45c83e5ac9000eb5fb7d20adc55305e");
+xhr.setRequestHeader("Content-Type", "application/json");
+
+xhr.send(data);
+}
+</script>
+
+</body>
+</html>
+
